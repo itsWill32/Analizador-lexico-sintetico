@@ -1,0 +1,342 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sección de entrada */
+.input-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  margin-bottom: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+.input-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #742a2a;
+  font-size: 1.1rem;
+}
+
+.input-section textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 400px;
+  background-color: black;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-section textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background-color: white;
+}
+
+.analyze-button {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.analyze-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.analyze-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.analyze-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Indicador de carga */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e2e8f0;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Sección de resultados */
+.results-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e2e8f0;
+}
+
+/* Sección de éxito */
+.success-section h2 {
+  color: #38a169;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.success-message p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* Container de la tabla */
+.tokens-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Tabla de tokens */
+.tokens-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: white;
+}
+
+.tokens-table thead {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.tokens-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tokens-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.tokens-table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.tokens-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tokens-table td {
+  padding: 12px;
+  vertical-align: top;
+}
+
+.tokens-table td:first-child {
+  font-weight: 600;
+  color: #667eea;
+  text-align: center;
+  width: 80px;
+}
+
+.token-type {
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  background-color: #edf2f7;
+  color: #2d3748;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 120px;
+  text-align: center;
+}
+
+.token-value {
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  background-color: #f7fafc;
+  color: #2d3748;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  word-break: break-all;
+  max-width: 300px;
+  border-left: 3px solid #667eea;
+}
+
+/* Sección de error */
+.error-section h2 {
+  color: #e53e3e;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.error-detail {
+  background-color: #fed7d7;
+  border: 1px solid #feb2b2;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.error-detail strong {
+  color: #c53030;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.error-detail p {
+  color: #742a2a;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #e53e3e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .input-section,
+  .results-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .input-section textarea {
+    min-height: 300px;
+    font-size: 13px;
+  }
+  
+  .analyze-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  .tokens-table {
+    font-size: 12px;
+  }
+  
+  .tokens-table th,
+  .tokens-table td {
+    padding: 8px 6px;
+  }
+  
+  .token-type,
+  .token-value {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .token-value {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tokens-table th:first-child,
+  .tokens-table td:first-child {
+    width: 50px;
+  }
+  
+  .token-type {
+    min-width: 80px;
+  }
+  
+  .token-value {
+    max-width: 150px;
+  }
+}
